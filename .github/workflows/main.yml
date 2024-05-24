@@ -1,0 +1,24 @@
+name: Push
+on: [push, workflow_dispatch]
+
+jobs:
+  theme-check:
+    name: Theme Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+       # Add configuration to .theme-check.yml
+      - name: Update .theme-check.yml
+        run: |
+          echo "" >> .theme-check.yml
+          echo "RequiredDirectories:" >> .theme-check.yml
+          echo "  enabled: false" >> .theme-check.yml
+
+      # Theme Check
+      - name: Theme Check
+        uses: shopify/theme-check-action@v2
+        with:
+          token: ${{ github.token }}
+          base: main
