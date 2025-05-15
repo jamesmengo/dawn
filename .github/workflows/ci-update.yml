@@ -19,6 +19,7 @@ jobs:
         run: |
           shopify theme push \
             --json \
+            -u \
             --theme your-theme-name-or-id \
             --store ${{ secrets.SHOPIFY_FLAG_STORE }} \
             --password ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
