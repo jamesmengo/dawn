@@ -1,6 +1,6 @@
 name: Theme deploy
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   deploy:
